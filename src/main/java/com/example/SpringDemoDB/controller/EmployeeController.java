@@ -43,10 +43,6 @@ public class EmployeeController {
     public List<EmployeeResponseDto> getEmployeeListByDepartment(Long id){
         return employeeService.getEmployeeListByDepartment(id);
     }
-
-    @GetMapping("/mostExperienced")
-    public List<EmployeeResponseDto> getEmployeeListByExperience(){
-        return employeeService.getEmployeeListByExperience();
-    }
-
 }
+
+
