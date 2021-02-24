@@ -26,15 +26,19 @@ public class DepartmentServiceImpl implements DepartmentService {
         return responseDto;
     }
 
+//    @Override
+//    public DepartmentResponseDto getDepartmentById(Long id){
+//        Optional<Department> departmentOptional=departmentRepository.findById(id);
+//        if(departmentOptional.isPresent()){
+//            DepartmentResponseDto responseDto=new DepartmentResponseDto();
+//            BeanUtils.copyProperties(departmentOptional.get(),responseDto);
+//            return responseDto;
+//        }
+//        return null;
+//    }
     @Override
-    public DepartmentResponseDto getDepartmentById(Long id){
-        Optional<Department> departmentOptional=departmentRepository.findById(id);
-        if(departmentOptional.isPresent()){
-            DepartmentResponseDto responseDto=new DepartmentResponseDto();
-            BeanUtils.copyProperties(departmentOptional.get(),responseDto);
-            return responseDto;
-        }
-        return null;
+    public Department getDepartmentById(Long id){
+       return departmentRepository.findById(id).get();
     }
 }
 
