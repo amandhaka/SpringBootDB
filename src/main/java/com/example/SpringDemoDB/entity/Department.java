@@ -16,8 +16,9 @@ public class Department {
     @GeneratedValue(generator="department_id_seq",strategy = GenerationType.AUTO)
     private Long id;
     private String dName;
-    @JoinColumn(referencedColumnName = "id", name = "department_Id")
-    @OneToMany
-    List<Employee> employeeList;
+
+//    @JoinColumn(referencedColumnName = "id", name = "department_Id")
+//    @OneToMany
+//    List<Employee> employeeList;
 
 }

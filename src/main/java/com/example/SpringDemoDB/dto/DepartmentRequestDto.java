@@ -8,5 +8,7 @@ import lombok.Setter;
 public class DepartmentRequestDto {
     private Long id;
     private String dName;
-    private DepartmentRequestDto departmentRequestDto;
+    //private DepartmentRequestDto departmentRequestDto;
+    private String departmentCode;
+
 }
