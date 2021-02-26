@@ -13,7 +13,7 @@ public interface DepartmentRepository extends CrudRepository<Department,Long> {
     //Query For getting department with most experienced Employees
     String queryForGettingMostExperiencedDepartment = "SELECT * FROM department d1 where d1.id in (\n" +
             "\n" +
-            "SELECT e.department_id  AS year_of_experience\n" +
+            "SELECT e.department_id \n" +
             "\n" +
             "FROM feb_employee e LEFT JOIN department d \n" +
             "\n" +
@@ -31,6 +31,7 @@ public interface DepartmentRepository extends CrudRepository<Department,Long> {
             "\n" +
             "\tDESC FETCH FIRST 1 ROW ONLY)\n" +
             ")\n";
+
 
     @Query(value=queryForGettingMostExperiencedDepartment,nativeQuery = true)
     List<Department> getMostExperiencedDepartmentList();
