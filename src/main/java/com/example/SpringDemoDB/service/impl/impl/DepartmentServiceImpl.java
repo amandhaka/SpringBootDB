@@ -1,5 +1,6 @@
 package com.example.SpringDemoDB.service.impl.impl;
 
+import com.example.SpringDemoDB.dto.DepartmentJoinEmployeeResponseDto;
 import com.example.SpringDemoDB.dto.DepartmentRequestDto;
 import com.example.SpringDemoDB.dto.DepartmentResponseDto;
 import com.example.SpringDemoDB.dto.EmployeeResponseDto;
@@ -83,20 +84,24 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     //Get Department with Max of sum of year of experience of employees
     @Override
-    public List<DepartmentResponseDto> getDepartmentWithMostExperience(){
+    public List<DepartmentJoinEmployeeResponseDto> getDepartmentWithMostExperience(){
 
         List<Department> departmentList = departmentRepository.getMostExperiencedDepartmentList();
-        List<DepartmentResponseDto> responseDtoList = new ArrayList<>();
+        List<DepartmentJoinEmployeeResponseDto> responseDtoList = new ArrayList<>();
 
         for(Department department : departmentList){
-
-            DepartmentResponseDto  responseDto = new DepartmentResponseDto();
-            BeanUtils.copyProperties(department,responseDto);
+            List<Employee> employeeList = employeeRepository.getEmployeeListByNativeQuery(department.getId());
+            DepartmentJoinEmployeeResponseDto responseDto = new DepartmentJoinEmployeeResponseDto();
+            responseDto.setDepartmentName(department.getDName());
+            responseDto.setEmployeeList(employeeList);
+            responseDto.setId(department.getId());
+            responseDto.setTotalSumOfYearOfExperience(employeeRepository.getTotalSumOfExperience(department.getId()));
             responseDtoList.add(responseDto);
-
         }
 
         return responseDtoList;
 
     }
+
+
 }

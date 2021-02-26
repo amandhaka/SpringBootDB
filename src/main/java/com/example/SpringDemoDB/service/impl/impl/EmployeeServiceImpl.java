@@ -59,6 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employeeOptional.isPresent()){
             EmployeeResponseDto responseDto = new EmployeeResponseDto();
             BeanUtils.copyProperties(employeeOptional.get(),responseDto);
+            responseDto.setDepartmentFromEntity(employeeOptional.get().getDepartment());
 
             return responseDto;
         }

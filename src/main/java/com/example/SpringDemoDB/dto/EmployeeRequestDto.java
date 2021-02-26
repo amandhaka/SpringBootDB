@@ -10,5 +10,6 @@ import lombok.Setter;
 public class EmployeeRequestDto {
     private Long id;
     private String name;
+    private Long yearOfExperience;
     private Department department;
 }

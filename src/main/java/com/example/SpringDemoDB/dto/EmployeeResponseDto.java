@@ -12,6 +12,8 @@ public class EmployeeResponseDto {
 
     private Long id;
     private String name;
+    private Long yearOfExperience;
+    private String code;
     private DepartmentResponseDto department;
 
     public DepartmentResponseDto setDepartmentFromEntity(Department departmentEntity){

@@ -1,5 +1,6 @@
 package com.example.SpringDemoDB.service.impl;
 
+import com.example.SpringDemoDB.dto.DepartmentJoinEmployeeResponseDto;
 import com.example.SpringDemoDB.dto.DepartmentRequestDto;
 import com.example.SpringDemoDB.dto.DepartmentResponseDto;
 import com.example.SpringDemoDB.dto.EmployeeResponseDto;
@@ -17,5 +18,5 @@ public interface DepartmentService {
 
     List<EmployeeResponseDto> getMostExperiencedEmployeeWithinDepartment(Long departmentId);
 
-    List<DepartmentResponseDto> getDepartmentWithMostExperience();
+    List<DepartmentJoinEmployeeResponseDto> getDepartmentWithMostExperience();
 }

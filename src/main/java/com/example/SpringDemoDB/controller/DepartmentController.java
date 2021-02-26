@@ -1,5 +1,6 @@
 package com.example.SpringDemoDB.controller;
 
+import com.example.SpringDemoDB.dto.DepartmentJoinEmployeeResponseDto;
 import com.example.SpringDemoDB.dto.DepartmentRequestDto;
 import com.example.SpringDemoDB.dto.DepartmentResponseDto;
 import com.example.SpringDemoDB.dto.EmployeeResponseDto;
@@ -40,8 +41,8 @@ public class DepartmentController {
     }
 
     //Getting Most Experienced Department
-    @GetMapping("/getMostExperienced")
-    public List<DepartmentResponseDto> getDepartmentMostExperienced(){
+    @GetMapping("/mostExperienced")
+    public List<DepartmentJoinEmployeeResponseDto> getDepartmentMostExperienced(){
         return departmentService.getDepartmentWithMostExperience();
     }
 }

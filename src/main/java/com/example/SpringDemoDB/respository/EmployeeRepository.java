@@ -10,8 +10,10 @@ public interface EmployeeRepository extends CrudRepository<Employee,Long> {
 
     List<Employee> findByDepartment_Id(Long departmentId);
 
-    @Query(value="SELECT * FROM feb_employee e WHERE e.department_id=?1",nativeQuery = true)
+    String queryForEmployeeListFromDepartment = "SELECT * FROM feb_employee e WHERE e.department_id=?1";
+    @Query(value=queryForEmployeeListFromDepartment,nativeQuery = true)
     List<Employee> getEmployeeListByNativeQuery(Long departmentId);
+
 
 
     String queryForMostExperiencedEmployee = "SELECT * FROM feb_employee e " +
@@ -24,6 +26,7 @@ public interface EmployeeRepository extends CrudRepository<Employee,Long> {
     List<Employee> getEmployeeWithMostExperienceByNativeQuery();
 
 
+
     String getQueryForMostExperiencedEmployeeFromDepartment="SELECT * FROM feb_employee e WHERE " +
 
             "e.department_id=?1 AND e.year_of_experience IN " +
@@ -32,5 +35,11 @@ public interface EmployeeRepository extends CrudRepository<Employee,Long> {
 
     @Query(value=getQueryForMostExperiencedEmployeeFromDepartment,nativeQuery = true)
     List<Employee> getMostExperienceEmployeeFromDepartment(Long departmentId);
+
+
+    String queryToGetTotalSumOfExperience = "SELECT SUM(year_of_experience) from feb_employee e WHERE e.department_id=?1";
+    @Query(value=queryToGetTotalSumOfExperience,nativeQuery = true)
+    Long getTotalSumOfExperience(Long departmentId);
+
 
 }

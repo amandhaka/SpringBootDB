@@ -17,10 +17,5 @@ public class Department {
     private Long id;
     private String dName;
 
-    /*
-    @JoinColumn(referencedColumnName = "id", name = "department_Id")
-    @OneToMany
-    List<Employee> employeeList;
-    */
 
 }
