@@ -15,10 +15,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
+
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
     @PostMapping
     public EmployeeResponseDto createEmployee(@RequestBody EmployeeRequestDto employeeRequestDto){
         return employeeService.createEmployee(employeeRequestDto);
@@ -43,6 +45,10 @@ public class EmployeeController {
     public List<EmployeeResponseDto> getEmployeeListByDepartment(Long id){
         return employeeService.getEmployeeListByDepartment(id);
     }
+
+    //Getting most experienced Employee
+    @GetMapping("/mostExperienced")
+    public List<EmployeeResponseDto> getEmployeeListByExperience(){
+        return employeeService.getEmployeeListByExperience();
+    }
 }
-
-

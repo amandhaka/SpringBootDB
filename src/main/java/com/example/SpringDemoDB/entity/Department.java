@@ -5,11 +5,11 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name="Department")
 @Getter
 @Setter
+
 public class Department {
     @Id
     @GenericGenerator(name = "department_id_seq" , strategy = "increment")
@@ -17,8 +17,10 @@ public class Department {
     private Long id;
     private String dName;
 
-//    @JoinColumn(referencedColumnName = "id", name = "department_Id")
-//    @OneToMany
-//    List<Employee> employeeList;
+    /*
+    @JoinColumn(referencedColumnName = "id", name = "department_Id")
+    @OneToMany
+    List<Employee> employeeList;
+    */
 
 }

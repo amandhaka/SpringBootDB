@@ -2,14 +2,20 @@ package com.example.SpringDemoDB.service.impl;
 
 import com.example.SpringDemoDB.dto.DepartmentRequestDto;
 import com.example.SpringDemoDB.dto.DepartmentResponseDto;
+import com.example.SpringDemoDB.dto.EmployeeResponseDto;
 import com.example.SpringDemoDB.entity.Department;
 
-public interface DepartmentService {
-    DepartmentResponseDto createDepartment(DepartmentRequestDto departmentRequestDto);
+import java.util.List;
 
-    //DepartmentResponseDto getDepartmentById(Long id);
+public interface DepartmentService {
+
+    DepartmentResponseDto createDepartment(DepartmentRequestDto departmentRequestDto);
 
     Department getDepartmentById(Long id);
 
     DepartmentResponseDto updateDepartment(Long departmentId, DepartmentRequestDto departmentRequestDto);
+
+    List<EmployeeResponseDto> getMostExperiencedEmployeeWithinDepartment(Long departmentId);
+
+    List<DepartmentResponseDto> getDepartmentWithMostExperience();
 }
